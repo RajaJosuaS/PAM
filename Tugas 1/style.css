@@ -1,0 +1,37 @@
+.tabel {
+    width: 280px;
+    height: 630px;
+    font-size: 10px;
+    color: black;
+    border: 1px solid white;
+    margin-left: auto;
+    margin-right: auto;
+    table-layout: auto;
+    border-collapse: collapse;
+}
+
+.tabel1 {
+    background-color: white;
+    width: 300px;
+    height: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+th {
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px;
+    background-color: aqua;
+}
+
+td {
+    border: 1px solid white;
+    text-align: center;
+    padding: 10px;
+}

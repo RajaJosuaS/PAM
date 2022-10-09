@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 1 PAM_120140134_Raja Josua Simanungkalit_RA</title>
+</head>
+
+<body>
+
+    <div class="tabel">
+        <table class="tabel1">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Nilai</th>
+                    <th>Huruf Mutu</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <!--jquery to make data fakerjs to create dummy data-->
+        <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+            integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+        <script type="module">
+            import { faker } from 'https://cdn.skypack.dev/@faker-js/faker/locale/id_ID';
+
+            $(document).ready(function () {
+                let data = [{
+                    "Nama": "Raja Josua Simanungkalit",
+                    "NIM": 134,
+                    "Nilai": 80
+                }];
+
+                let dataMax = 10;
+                for (let i = 1; i < dataMax; i++) {
+                    data.push({
+                        "Nama": faker.name.firstName() + " " + faker.name.lastName(),
+                        "NIM": faker.random.numeric(3),
+                        "Nilai": faker.random.numeric(2)
+                    });
+                }
+
+                let tr;
+                let mutu;
+
+                for (let i = 0; i < dataMax; i++) {
+                    tr = $('<tr/>');
+                    tr.append('<td>' + (i + 1) + "</td>");
+                    tr.append('<td>' + data[i].Nama + "</td>");
+                    tr.append('<td>' + data[i].NIM + "</td>");
+                    tr.append('<td>' + data[i].Nilai + "</td>");
+
+                    switch (true) {
+                        case (data[i].Nilai >= 80):
+                            mutu = "A";
+                            break;
+                        case (data[i].Nilai >= 70):
+                            mutu = "AB";
+                            break;
+                        case (data[i].Nilai >= 60):
+                            mutu = "B";
+                            break;
+                        case (data[i].Nilai >= 50):
+                            mutu = "BC";
+                            break;
+                        case (data[i].Nilai >= 40):
+                            mutu = "C";
+                            break;
+                        case (data[i].Nilai >= 10):
+                            mutu = "D";
+                            break;
+                        default:
+                            mutu = "E";
+                            break;
+                    }
+                    tr.append('<td>' + mutu + "</td>");
+                    $('table').first().append(tr);
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
